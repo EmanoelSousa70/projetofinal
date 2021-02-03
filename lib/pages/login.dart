@@ -86,17 +86,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
-// Widget buildTextField(
-//   String label,
-//   TextEditingController c,
-// ) {
-//   return TextField(
-//     controller: c,
-//     decoration: InputDecoration(
-//       labelText: label,
-//       labelStyle: TextStyle(color: Colors.black),
-//     ),
-//     style: TextStyle(color: Colors.black, fontSize: 25),
-//   );
-// }
