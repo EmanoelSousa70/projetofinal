@@ -1,22 +1,24 @@
-import 'dart:async';
-import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:projeto_final/models/pessoa.dart';
 import 'package:sqflite/sqflite.dart';
+import 'dart:async';
+import 'dart:io';
+
 
 class DatabaseHelper {
   static DatabaseHelper _databaseHelper;
   static Database _database;
 
-//definir as colunas da tabela
+
   String pessoaTable = 'pessoa';
   String colId = 'id';
-  String colNome = 'nome';
-  String colLat = 'latitude';
   String colLong = 'longitude';
   String colImagem = 'imagem';
+  String colNome = 'nome';
+  String colLat = 'latitude';
+  
 
-  //construtor nomeado para criar instânia da classe
+ 
   DatabaseHelper._createInstance();
 
   factory DatabaseHelper() {
@@ -52,7 +54,7 @@ class DatabaseHelper {
         $colImagem TEXT)''');
   }
 
-  //Vai incluir um objeto contato no banco de dados
+
   Future<int> insertPessoa(Pessoa pessoa) async {
     Database db = await this.database;
 
@@ -62,7 +64,7 @@ class DatabaseHelper {
     return resultado;
   }
 
-  //retornar pessoas pelo nome
+  
   Future<Pessoa> getPessoa(String nome) async {
     Database db = await this.database;
 
@@ -80,7 +82,7 @@ class DatabaseHelper {
     return Pessoa.fromMap(maps.first);
   }
 
-  //retornar todas as pessoas
+ 
   Future<List<Pessoa>> getPessoas() async {
     Database db = await this.database;
 
@@ -93,8 +95,7 @@ class DatabaseHelper {
     return lista;
   }
 
-  //Atualizar o objeto Pessoa do banco de dados
-
+  
   Future<int> updatePessoa(Pessoa pessoa) async {
     var db = await this.database;
 
@@ -104,7 +105,7 @@ class DatabaseHelper {
     return resultado;
   }
 
-  //Deletar um objeto Pessoa do banco de dados
+ 
 
   Future<int> deletePessoa(int id) async {
     var db = await this.database;
